@@ -27,7 +27,7 @@ jobs:
 
       # Checkout submodule
       - run: |
-          echo ${{ secrets.DEPLOY_KEY }} > deploy.key
+          echo "${{ secrets.DEPLOY_KEY }}" > deploy.key
           chmod 400 deploy.key
           GIT_SSH_COMMAND='ssh -i deploy.key' git submodule update --init --recursive
           ls -R
