@@ -1,0 +1,3 @@
+[submodule "private-repo"]
+	path = private-repo
+	url = git@github.com:leohoo/private-repo.git
