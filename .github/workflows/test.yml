@@ -30,6 +30,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Test startsWith
+        if: startsWith(${{ github.ref_name }}, "dev/")
+        run: |
+          echo ref name is ${{ github.ref_name }}
+
       # Checkout submodule
       - run: |
           echo "${{ secrets.DEPLOY_KEY }}" > deploy.key
