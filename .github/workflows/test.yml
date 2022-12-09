@@ -36,6 +36,11 @@ jobs:
           echo ref name is ${{ github.ref_name }}
           echo ${{ github.ref_name }} startsWith 'dev/'
 
+      - name: Test startsWith 2
+        if: startsWith('abc', 'dev/')
+        run: |
+          echo abc startsWith 'dev/'
+
       # Checkout submodule
       - run: |
           echo "${{ secrets.DEPLOY_KEY }}" > deploy.key
