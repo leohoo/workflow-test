@@ -30,27 +30,32 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Test variables
+        run: |
+          echo ${{ github.ref_name }}
+          echo x ${{ ${{ github.ref_name }} }} x
+
       - name: Test startsWith ref_name
-        if: startsWith(github.ref_name, 'dev/')
+        if: startsWith(github.ref_name, "dev/")
         run: |
           echo ref name is ${{ github.ref_name }}
-          echo ${{ github.ref_name }} startsWith 'dev/'
+          echo ${{ github.ref_name }} startsWith "dev/"
 
       - name: Test NOT startsWith ref_name
-        if: ${{ !startsWith(github.ref_name, 'dev/') }}
+        if: ${{ !startsWith(github.ref_name, "dev/") }}
         run: |
           echo ref name is ${{ github.ref_name }}
-          echo ${{ github.ref_name }} NOT startsWith 'dev/'
+          echo ${{ github.ref_name }} NOT startsWith "dev/"
 
       - name: Test startsWith 2
-        if: startsWith('abc', 'dev/')
+        if: startsWith('abc', "dev/")
         run: |
-          echo abc startsWith 'dev/'
+          echo abc startsWith "dev/"
 
       - name: Test startsWith 3
-        if: startsWith('dev/aaa', 'dev/')
+        if: startsWith('dev/aaa', "dev/")
         run: |
-          echo dev/aaa startsWith 'dev/'
+          echo dev/aaa startsWith "dev/"
 
       # Checkout submodule
       - run: |
