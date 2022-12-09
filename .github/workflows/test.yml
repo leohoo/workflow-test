@@ -41,6 +41,10 @@ jobs:
         run: |
           echo abc startsWith 'dev/'
 
+      - name: Test startsWith 3
+        if: startsWith('dev/aaa', 'dev/')
+        run: |
+          echo dev/aaa startsWith 'dev/'
       # Checkout submodule
       - run: |
           echo "${{ secrets.DEPLOY_KEY }}" > deploy.key
