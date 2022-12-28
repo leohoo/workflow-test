@@ -2,9 +2,9 @@ name: Test Workflow
 on:
   push:
     paths:
-      - '**.md'
-    tags-ignore:
       - '**'
+    # tags-ignore:
+    #   - '**'
 
 jobs:
   job1:
