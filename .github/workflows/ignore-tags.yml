@@ -10,7 +10,7 @@ jobs:
   job1:
     strategy:
       matrix:
-        var: [1,2,3]
+        var: [ ${{ vars.ARRAY }} ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
