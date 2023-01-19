@@ -10,7 +10,7 @@ jobs:
   job1:
     strategy:
       matrix:
-        var: ${{ fromJSON(vars.ARRAY) }}
+        test-url: ${{ fromJSON(vars.TEST_URL) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
@@ -20,4 +20,4 @@ jobs:
         run: |
           echo Test1
           echo ref name is ${{ github.ref_name }}
-          echo var is ${{ matrix.var }} of [${{ vars.ARRAY }}]
+          echo var is ${{ matrix.var }} of ${{ vars.ARRAY }}
