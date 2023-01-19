@@ -8,6 +8,9 @@ on:
 
 jobs:
   job1:
+    strategy:
+      matrix:
+        var: [1,2,3]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
@@ -17,3 +20,4 @@ jobs:
         run: |
           echo Test1
           echo ref name is ${{ github.ref_name }}
+          echo var is ${{ matrix.var }}
