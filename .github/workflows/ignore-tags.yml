@@ -20,4 +20,4 @@ jobs:
         run: |
           echo Test1
           echo ref name is ${{ github.ref_name }}
-          echo var is ${{ matrix.var }} of ${{ vars.ARRAY }}
+          echo url is ${{ matrix.test-url }}
