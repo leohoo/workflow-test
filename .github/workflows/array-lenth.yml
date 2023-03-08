@@ -18,6 +18,6 @@ jobs:
       fail-fast: false
       matrix:
         item: ${{ fromJSON(vars.ARRAY) }}
-
+    needs: [prepare]
     steps:
       - run: echo "item ${{ matrix.item }}"
