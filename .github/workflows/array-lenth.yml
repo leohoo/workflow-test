@@ -1,0 +1,23 @@
+name: array related
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    if: fromJSON(vars.ARRAY)[0] != null
+    steps:
+      - run: echo prepare ${{ vars.ARRAY }}
+
+  do-work:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        item: ${{ fromJSON(vars.ARRAY) }}
+
+    steps:
+      - run: echo "item ${{ matrix.item }}"
