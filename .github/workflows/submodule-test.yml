@@ -24,4 +24,5 @@ jobs:
           # ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - run: ls -lR
+        if: always()
 
