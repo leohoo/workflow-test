@@ -9,10 +9,10 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
-    # env:
-    #   TAGNAME: ${{ ${github.ref#refs\/tags\/v} }}
+    env:
+      TAGNAME: ${GITHUB_REF#refs/tags/v}
     steps:
       - run: |
           echo TAGNAME $TAGNAME
-          echo "[${github.ref#refs\/tags\/v}]"
+          echo "[${GITHUB_REF#refs/tags/v}]"
 
