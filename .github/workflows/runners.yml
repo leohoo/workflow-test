@@ -1,0 +1,23 @@
+name: runners
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  check-sdk:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: print env
+        run: env
+
+      - run: |
+          echo ANDROID_HOME is $ANDROID_HOME
+          ls -lR $ANDROID_HOME
