@@ -76,3 +76,7 @@ jobs:
           echo ${{ github.ref_name }}
           echo versionCode is ${{ env.versionCode }}
 
+      - name: test env.
+        env:
+          TESTVAR: $ {{ env.GITHUB_ACTION }}
+        run: echo $TESTVAR
