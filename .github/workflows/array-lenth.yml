@@ -11,6 +11,10 @@ jobs:
     if: fromJSON(vars.ARRAY)[0] != null
     steps:
       - run: echo prepare ${{ vars.ARRAY }}
+      - run: |
+        for v in ${{ fromJSON(vars.ARRAY) }}; do
+          echo "- $v -"
+        done
 
   do-work:
     runs-on: ubuntu-latest
