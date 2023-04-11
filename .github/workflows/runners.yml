@@ -12,7 +12,6 @@ jobs:
         os:
           - ubuntu-latest
           - ubuntu-22.04
-          - ubuntu-22.04-20230305.1
           - macos-latest
     runs-on: ${{ matrix.os }}
 
@@ -23,3 +22,10 @@ jobs:
       - run: |
           echo ANDROID_HOME is $ANDROID_HOME
           ls -lR $ANDROID_HOME
+
+  job1:
+    needs: check-sdk
+    runs-on: ubuntu-18.04
+    steps:
+      - run: |
+          echo ${{needs.check-sdk.strategy.matrix.os}}
