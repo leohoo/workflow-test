@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - "**"
+    paths:
+      - ".github/workflows/ignore-tags.yml"
     # tags-ignore:
     #   - '**'
 

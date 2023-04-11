@@ -3,7 +3,7 @@ name: runners
 on:
   push:
     paths:
-      - ".github/workflow/runners.yml"
+      - ".github/workflows/runners.yml"
   workflow_dispatch:
 
 jobs:
