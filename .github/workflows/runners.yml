@@ -2,6 +2,8 @@ name: runners
 
 on:
   push:
+    paths:
+      - ".github/workflow/runners.yml"
   workflow_dispatch:
 
 jobs:
@@ -13,6 +15,9 @@ jobs:
           - ubuntu-latest
           - ubuntu-22.04
           - macos-latest
+    outputs:
+      array: ${{ matrix.os }}
+
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -21,11 +26,11 @@ jobs:
 
       - run: |
           echo ANDROID_HOME is $ANDROID_HOME
-          ls -lR $ANDROID_HOME
+          # ls -lR $ANDROID_HOME
 
   job1:
     needs: check-sdk
     runs-on: ubuntu-20.04
     steps:
       - run: |
-          echo ${{needs.check-sdk.strategy.matrix.os}}
+          echo ${{needs.check-sdk.outputs.array}}
