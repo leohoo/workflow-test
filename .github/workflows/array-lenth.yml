@@ -12,9 +12,9 @@ jobs:
     steps:
       - run: echo prepare ${{ vars.ARRAY }}
       - run: |
-        for v in ${{ fromJSON(vars.ARRAY) }}; do
-          echo "- $v -"
-        done
+          for v in ${{ fromJSON(vars.ARRAY) }}; do
+            echo "- $v -"
+          done
 
   do-work:
     runs-on: ubuntu-latest
