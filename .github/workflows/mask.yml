@@ -15,3 +15,7 @@ jobs:
         run: |
           echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
           echo done
+      - name: normal step
+        run: |
+          echo "This is a normal step"
+          echo done
